@@ -17,11 +17,15 @@ namespace WebAPI.Controllers
             _context = context;
         }
 
-        //GET action
+        //GET all products action
         [HttpGet]
         public ActionResult<List<Product>> GetAll() =>
             _context.Products.ToList();
 
+
+        //GET product by ID
+        [HttpGet("{id}")]
+        public ActionResult<Product> GetProductByID(int id) => _context.Products.Find(id);
 
         //POST action
         [HttpPost]
